@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import userRoutes from './routes/userRoute.js';
 import authRoutes from './routes/authRoute.js';
-// import cors from "cors";
-
+import cookieParser from 'cookie-parser';
+import path from 'path';
 
 dotenv.config();
 
@@ -28,6 +28,8 @@ app.get('*', (req, res) => {
 });
 
 app.use(express.json());
+
+app.use(cookieParser());
 
 
 app.listen(3000, () => {
